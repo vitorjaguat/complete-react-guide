@@ -25,14 +25,24 @@ const DUMMY_EXPENSES = [
   },
 ];
 
+//Local Storage
+// localStorage.setItem('expensesStorage', JSON.stringify(DUMMY_EXPENSES));
+// const expensesStorage = JSON.parse(localStorage.getItem('expensesStorage'));
+// console.log(expensesStorage);
+
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
-      return [expense, ...expenses];
+      return [expense, ...prevExpenses];
     });
+    // setTimeout(() => {
+    //   localStorage.setItem('expensesStorage', JSON.stringify(expenses));
+    // }, 30000);
   };
+
+  // localStorage.setItem('expensesStorage', JSON.stringify(expenses));
 
   return (
     <div>
